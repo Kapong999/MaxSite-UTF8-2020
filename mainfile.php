@@ -16,7 +16,7 @@ extract($arr, EXTR_SKIP);
 //error_reporting(E_ALL);
 
 //error_reporting(E_ALL ^ E_NOTICE);
-//หากมีการเรียกไฟล์นี้โดยตรง
+//รร’ยกรร•ยกร’รร รร•รยกรคยฟร…รฌยนร•รฉรขยดรยตรยง
 if (preg_match("/mainfile.php/i",$_SERVER['PHP_SELF'])) {
     Header("Location: index.php");
     die();
@@ -46,14 +46,9 @@ if(empty($_SESSION['ua']) || $_SESSION['ua'] != $admin_user.":".$_SERVER['HTTP_U
 {
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $db->del(TB_useronline," useronline='".$_SESSION['admin_user']."' ");
-$db->add_db(TB_IPBLOCK,array(
-	"ip"=>"".$IPADDRESS."",
-	"post_date"=>"".time().""
-	));
-$db->closedb ();
 session_unset();
 //session_destroy();
-session_regenerate_id(); // เริ่ม session อื่นใหม
+session_regenerate_id(); // ร รร”รจร session รร—รจยนรฃรร
 die('Session Hijacking Attempt');
 }
 
@@ -70,11 +65,11 @@ $db->add_db(TB_IPBLOCK,array(
 $db->closedb ();
 session_unset();
 //session_destroy();
-session_regenerate_id(); // เริ่ม session อื่นใหม
+session_regenerate_id(); // ร รร”รจร session รร—รจยนรฃรร
 die('Session Hijacking Attempt');
 }
 }
-//ตรวจสอบว่ามีโมดูลหรือไม่ (โมดูล User)
+//ยตรรยจรรยบรรจร’รร•รขรยดรร…รรร—รรครรจ (รขรยดรร… User)
 function GETMODULE($name,$file){
 	global $MODPATH, $MODPATHFILE ;
 	$targetPath = WEB_PATH;
@@ -93,7 +88,7 @@ header( 'Content-Type:text/html; charset='.ISO.'');
 }
 
 
-//ผู้ดูแลระบบไม่ผ่านสิทธิการใช้งาน
+//ยผรรฉยดรรกร…รรยบยบรครรจยผรจร’ยนรร”ยทยธร”ยกร’รรฃยชรฉยงร’ยน
 $PermissionFalse = "<BR><BR>";
 $PermissionFalse .= "<CENTER><A HREF=\"?name=admin&file=main\"><IMG SRC=\"images/icon/notview.gif\" BORDER=\"0\"></A><BR><BR>";
 $PermissionFalse .= "<FONT COLOR=\"#336600\"><B>"._PERMISSION_ADMIN."</B></FONT><BR><BR>";
@@ -101,13 +96,13 @@ $PermissionFalse .= "<A HREF=\"?name=admin&file=main\"><B>"._PERMISSION_INDEX."<
 $PermissionFalse .= "</CENTER>";
 $PermissionFalse .= "<BR><BR>";
 
-// ส่วนของระบบสมาชิกเพิ่มเติมภายหลังโดย narongrit.net
-$home = "".WEB_URL."" ; // url เว็บไซด์ของคุณ เวลาที่ต้องการเรียก
-$admin_email = "".WEB_EMAIL."" ; // อีเมล์ของคุณ
-$yourcode = "web" ; // รหัสนำหน้าหมายเลขสมาชิกของคุณ เช่น ip00001 , abc00005
-$member_num_show = 5 ;  // จำนวนของสมาชิกที่ต้องการให้แสดงต่อ  1 หน้า ในระบบของ admin
-$member_num_show_last = 5 ;  // จำนวนของสมาชิกล่าสุดที่ต้องการให้แสดง
-$member_num_last = 1 ;  // จำนวนของสมาชิกล่าสุดที่ต้องการให้แสดงหน้าแรก
+// รรจรยนยขรยงรรยบยบรรร’ยชร”ยกร ยพร”รจรร ยตร”รร€ร’รรร…ร‘ยงรขยดร narongrit.net
+$home = "".WEB_URL."" ; // url ร รรงยบรคยซยดรฌยขรยงยครยณ ร รร…ร’ยทร•รจยตรฉรยงยกร’รร รร•รยก
+$admin_email = "".WEB_EMAIL."" ; // รร•ร รร…รฌยขรยงยครยณ
+$yourcode = "web" ; // รรร‘รยนร“รยนรฉร’รรร’รร ร…ยขรรร’ยชร”ยกยขรยงยครยณ ร ยชรจยน ip00001 , abc00005
+$member_num_show = 5 ;  // ยจร“ยนรยนยขรยงรรร’ยชร”ยกยทร•รจยตรฉรยงยกร’รรฃรรฉรกรยดยงยตรจร  1 รยนรฉร’ รฃยนรรยบยบยขรยง admin
+$member_num_show_last = 5 ;  // ยจร“ยนรยนยขรยงรรร’ยชร”ยกร…รจร’รรยดยทร•รจยตรฉรยงยกร’รรฃรรฉรกรยดยง
+$member_num_last = 1 ;  // ยจร“ยนรยนยขรยงรรร’ยชร”ยกร…รจร’รรยดยทร•รจยตรฉรยงยกร’รรฃรรฉรกรยดยงรยนรฉร’รกรยก
 
 $bkk= mktime(gmdate("H")+7,gmdate("i")+0,gmdate("s"),
 	gmdate("m") ,gmdate("d"),gmdate("Y"));
